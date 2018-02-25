@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="@dimen/cardWidth"
+        android:layout_height="@dimen/cardHeight"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layoutMargin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Question 5 of 10:"
+                android:textColor="@color/questionNumColor"
+                android:textSize="@dimen/questionText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textTopMargin"
+                android:text="What was the Colosseum in Rome originally used for?"
+                android:textColor="@color/questionColor"
+                android:textSize="@dimen/questionText" />
+
+            <RadioGroup
+                android:id="@+id/q5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/q5a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/answerMargin"
+                    android:text="A)  Housing"
+                    android:textColor="@color/answerColor"
+                    android:textSize="@dimen/answerText" />
+
+                <RadioButton
+                    android:id="@+id/q5b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B)  Entertainment"
+                    android:textColor="@color/answerColor"
+                    android:textSize="@dimen/answerText" />
+
+                <RadioButton
+                    android:id="@+id/q5c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C)  Workshops"
+                    android:textColor="@color/answerColor"
+                    android:textSize="@dimen/answerText" />
+
+                <RadioButton
+                    android:id="@+id/q5d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D)  Fortress"
+                    android:textColor="@color/answerColor"
+                    android:textSize="@dimen/answerText" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submitQ5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setQ5"
+            android:layout_marginBottom="@dimen/buttonMargin"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/buttonshape"
+            android:textSize="@dimen/questionText"
+            android:textColor="@color/buttonColor"
+            android:text="Submit"/>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">History Quiz</string>
+    <string name="welcome">World History\nQuiz</string>
+    <string name="hint">Please Enter Your Name</string>
+    <string name="beginButton">Begin</string>
+    <string name="submitButton">Submit</string>
+    <string name="finishButton">Finish</string>
+</resources>
+
