@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         if (person.equals("")) {
             // Display message. //
             Toast toast = Toast.makeText(this, "Please Enter Your Name.", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 490);
+            toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             // Exit method early. //
             return;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Quiz.class);
         intent.putExtra("NAME", String.valueOf(person));
         Toast toast = Toast.makeText(this, "Good luck, " + person + ".", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 490);
+        toast.setGravity(Gravity.CENTER, 0, 585);
         toast.show();
         startActivity(intent);
     }
