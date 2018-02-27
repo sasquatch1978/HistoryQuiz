@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">History Quiz</string>
-    <string name="welcome">World History\nQuiz</string>
+    <string name="title">World History\nQuiz</string>
     <string name="hint">Please Enter Your Name</string>
     <string name="beginButton">Begin</string>
     <string name="submitButton">Submit</string>
@@ -12,5 +12,35 @@
     <string name="answer1b">B) Cuneiform</string>
     <string name="answer1c">C) Indus</string>
     <string name="answer1d">D) Elamite</string>
+    <string name="questionTitle2">Question 2 of 10:</string>
+    <string name="question2">The first Olympic Games in 776 BC, were held in what Greek city?</string>
+    <string name="answer2a">A) Athens</string>
+    <string name="answer2b">B) Corinth</string>
+    <string name="answer2c">C) Olympia</string>
+    <string name="answer2d">D) Thebes</string>
+    <string name="questionTitle3">Question 3 of 10:</string>
+    <string name="question3">The Great Pyramid, Egypt\'s largest pyramid, is located where?</string>
+    <string name="answer3a">A) Giza</string>
+    <string name="answer3b">B) Dahshur</string>
+    <string name="answer3c">C) Lisht</string>
+    <string name="answer3d">D) Nuri</string>
+    <string name="questionTitle4">Question 4 of 10:</string>
+    <string name="question4">Which two cities were destroyed in the Mount Vesuvius eruption of AD 79?</string>
+    <string name="answer4a">A) Herculaneum</string>
+    <string name="answer4b">B) Misenum</string>
+    <string name="answer4c">C) Pompeii</string>
+    <string name="answer4d">D) Neapolis</string>
+    <string name="questionTitle5">Question 5 of 10:</string>
+    <string name="question5">What was the Colosseum in Rome originally used for?</string>
+    <string name="answer5a">A) Housing</string>
+    <string name="answer5b">B) Entertainment</string>
+    <string name="answer5c">C) Workshops</string>
+    <string name="answer5d">D) Fortress</string>
+    <string name="questionTitle6">Question 6 of 10:</string>
+    <string name="question6">Which two were invented in China?</string>
+    <string name="answer6a">A) Compass</string>
+    <string name="answer6b">B) Eyeglasses</string>
+    <string name="answer6c">C) Windmill</string>
+    <string name="answer6d">D) Gunpowder</string>
 </resources>
 

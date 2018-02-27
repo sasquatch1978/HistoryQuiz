@@ -1,85 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    style="@style/QuestionLayout">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_width="@dimen/cardWidth"
-        android:layout_height="@dimen/cardHeight"
-        android:layout_gravity="center"
-        card_view:cardCornerRadius="4dp">
+    <android.support.v7.widget.CardView
+        style="@style/QuestionCard"
+        card_view:cardCornerRadius="@dimen/cardRadius">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/layoutMargin"
-            android:orientation="vertical">
+        <LinearLayout style="@style/CardLayout">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Question 6 of 10:"
-                android:textColor="@color/questionNumColor"
-                android:textSize="@dimen/questionText" />
+                style="@style/QuestionTitle"
+                android:text="@string/questionTitle6" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/textTopMargin"
-                android:text="Which two were invented in China?"
-                android:textColor="@color/questionColor"
-                android:textSize="@dimen/questionText" />
+                style="@style/Question"
+                android:text="@string/question6" />
 
             <CheckBox
                 android:id="@+id/q6a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/answerMargin"
-                android:text="A)  Compass"
-                android:textColor="@color/answerColor"
-                android:textSize="@dimen/answerText" />
+                style="@style/AnswerTop"
+                android:text="@string/answer6a" />
 
             <CheckBox
                 android:id="@+id/q6b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="B)  Eyeglasses"
-                android:textColor="@color/answerColor"
-                android:textSize="@dimen/answerText" />
+                style="@style/Answer"
+                android:text="@string/answer6b" />
 
             <CheckBox
                 android:id="@+id/q6c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C)  Windmill"
-                android:textColor="@color/answerColor"
-                android:textSize="@dimen/answerText" />
+                style="@style/Answer"
+                android:text="@string/answer6c" />
 
             <CheckBox
                 android:id="@+id/q6d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="D)  Gunpowder"
-                android:textColor="@color/answerColor"
-                android:textSize="@dimen/answerText" />
+                style="@style/Answer"
+                android:text="@string/answer6d" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/submitQ6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SubmitButton"
             android:onClick="setQ6"
-            android:layout_marginBottom="@dimen/buttonMargin"
-            android:layout_gravity="bottom|center"
-            android:background="@drawable/buttonshape"
-            android:textSize="@dimen/questionText"
-            android:textColor="@color/buttonColor"
-            android:text="Submit"/>
+            android:text="@string/submitButton" />
 
     </android.support.v7.widget.CardView>
 </LinearLayout>

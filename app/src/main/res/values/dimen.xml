@@ -8,12 +8,10 @@
     <dimen name="entryTopMargin">44dp</dimen>
     <dimen name="answerMargin">6dp</dimen>
     <dimen name="answerBottom">36dp</dimen>
-    <dimen name="entryBottom">20dp</dimen>
     <dimen name="nameMargin">60dp</dimen>
     <dimen name="buttonMargin">16dp</dimen>
     <dimen name="entryMargin">140dp</dimen>
     <dimen name="imageBottom">20dp</dimen>
-    <dimen name="scoreTop">20dp</dimen>
 
     <!-- Width, Height, & Radius -->
     <dimen name="cardWidth">300dp</dimen>
@@ -27,5 +25,4 @@
     <!-- Text Size -->
     <dimen name="titleText">45sp</dimen>
     <dimen name="questionText">16sp</dimen>
-    <dimen name="answerText">16sp</dimen>
 </resources>

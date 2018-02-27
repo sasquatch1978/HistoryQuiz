@@ -8,7 +8,6 @@
     tools:context="com.example.android.historyquiz.MainActivity">
 
     <LinearLayout
-        android:id="@+id/welcomeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/layoutMargin"
@@ -37,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/titleBottom"
 
-            android:text="@string/welcome"
+            android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@color/questionNumColor"
             android:textSize="@dimen/titleText" />
