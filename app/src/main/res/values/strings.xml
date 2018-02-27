@@ -4,6 +4,13 @@
     <string name="hint">Please Enter Your Name</string>
     <string name="beginButton">Begin</string>
     <string name="submitButton">Submit</string>
-    <string name="finishButton">Finish</string>
+    <string name="score">Score:</string>
+    <string name="scoreValue">0</string>
+    <string name="questionTitle1">Question 1 of 10:</string>
+    <string name="question1">An early form of writing developed by the Sumerians was called:</string>
+    <string name="answer1a">A) Sanskrit</string>
+    <string name="answer1b">B) Cuneiform</string>
+    <string name="answer1c">C) Indus</string>
+    <string name="answer1d">D) Elamite</string>
 </resources>
 

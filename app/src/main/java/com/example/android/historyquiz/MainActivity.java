@@ -21,18 +21,19 @@ public class MainActivity extends AppCompatActivity {
         // Hides the keyboard when app opens until it is needed.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        name = (EditText) findViewById(R.id.name);
+        // EditText
+        name = findViewById(R.id.name);
     }
 
+    // Start the quiz.
     public void begin (View v){
         String person = name.getText().toString();
 
         if (person.equals("")) {
-            // Display message. //
+            // Display message.
             Toast toast = Toast.makeText(this, "Please Enter Your Name.", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
-            // Exit method early. //
             return;
         }
 

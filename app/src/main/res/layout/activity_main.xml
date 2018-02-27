@@ -15,32 +15,32 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="320dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/cardHeight"
+            android:layout_height="@dimen/imageHeight"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/answerBottom"
             android:src="@drawable/world" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp"
-                android:layout_marginTop="@dimen/nameMargin"
-                android:textColor="@color/questionNumColor"
-                android:text="@string/welcome"
-                android:textAlignment="center"
-                android:textSize="45sp" />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/entryTopMargin"
+            android:layout_marginLeft="@dimen/nameMargin"
+            android:layout_marginRight="@dimen/nameMargin"
+            android:hint="@string/hint"
+            android:inputType="textPersonName|textCapWords"
+            android:textAlignment="center" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/titleBottom"
 
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:layout_marginLeft="@dimen/nameMargin"
-                android:layout_marginRight="@dimen/nameMargin"
-                android:hint="@string/hint"
-                android:inputType="textPersonName|textCapWords"
-                android:textAlignment="center" />
+            android:text="@string/welcome"
+            android:textAlignment="center"
+            android:textColor="@color/questionNumColor"
+            android:textSize="@dimen/titleText" />
 
         <Button
             android:id="@+id/begin"
@@ -48,10 +48,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/buttonshape"
-            android:textSize="@dimen/questionText"
-            android:textColor="@color/buttonColor"
             android:onClick="begin"
-            android:text="@string/beginButton" />
+            android:text="@string/beginButton"
+            android:textColor="@color/buttonColor"
+            android:textSize="@dimen/questionText" />
 
     </LinearLayout>
 </ScrollView>

@@ -24,7 +24,6 @@ public class Quiz extends AppCompatActivity{
     ViewPager pager;
     private Handler handler = new Handler();
 
-
     TextView totalPoints;
 
     static String QUIZ_POINTS = "quiz_points";
@@ -34,6 +33,7 @@ public class Quiz extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.quiz);
 
+        // Gets info from other activities.
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         name = bundle.getString("NAME");
@@ -51,6 +51,7 @@ public class Quiz extends AppCompatActivity{
         totalPoints = findViewById(R.id.points);
     }
 
+    // Saves the score for rotation.
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         // Save custom values into the bundle.
@@ -59,6 +60,7 @@ public class Quiz extends AppCompatActivity{
         super.onSaveInstanceState(savedInstanceState);
     }
 
+    // Retrieves the score after rotation.
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         // Always call the superclass so it can restore the view hierarchy. //
@@ -115,13 +117,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ1 = findViewById(R.id.submitQ1);
         submitQ1.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question two.
@@ -162,13 +164,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ2 = findViewById(R.id.submitQ2);
         submitQ2.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question three.
@@ -209,13 +211,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ3 = findViewById(R.id.submitQ3);
         submitQ3.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question four.
@@ -277,13 +279,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ4 = findViewById(R.id.submitQ4);
         submitQ4.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question five.
@@ -324,13 +326,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ5 = findViewById(R.id.submitQ5);
         submitQ5.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question six.
@@ -392,13 +394,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ6 = findViewById(R.id.submitQ6);
         submitQ6.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question seven.
@@ -430,7 +432,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, B.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Wrong, A.", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -439,13 +441,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ7 = findViewById(R.id.submitQ7);
         submitQ7.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question eight.
@@ -455,7 +457,7 @@ public class Quiz extends AppCompatActivity{
         String answer = q8Answer.getText().toString();
 
         // Correct answer.
-        if (answer.equals("Waterloo") || answer.equals("waterloo")) {
+        if (answer.equals("Waterloo")) {
             // Display message.
             Toast toast = Toast.makeText(this, "Waterloo is correct.", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
@@ -487,13 +489,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ8 = findViewById(R.id.submitQ8);
         submitQ8.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question nine.
@@ -534,13 +536,13 @@ public class Quiz extends AppCompatActivity{
         Button submitQ9 = findViewById(R.id.submitQ9);
         submitQ9.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to next question.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2600);
+        }, 2500);
     }
 
     // Question ten.
@@ -581,7 +583,7 @@ public class Quiz extends AppCompatActivity{
         Button submitQ10 = findViewById(R.id.submitQ10);
         submitQ10.setEnabled(false);
 
-        //Auto-advance the pager.
+        // Advance to Results.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -590,7 +592,7 @@ public class Quiz extends AppCompatActivity{
                 intent.putExtra("NAME", name);
                 startActivity(intent);
             }
-        }, 2600);
+        }, 2500);
     }
 }
 

@@ -1,56 +1,47 @@
 package com.example.android.historyquiz;
 
-import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Results extends AppCompatActivity {
 
-    int points;
-    int result;
+    String person;
 
-    TextView results;
     TextView correct;
-    TextView percent;
-
-    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        String person = getIntent().getStringExtra("NAME");
+        int points;
+        int result;
+
+        // Gets info from other activities.
+        person = getIntent().getStringExtra("NAME");
         String score = getIntent().getStringExtra("SCORE");
         points = Integer.parseInt(String.valueOf(score));
 
-        results = findViewById(R.id.results);
+        // TextViews
+        TextView results = findViewById(R.id.results);
+        TextView percent = findViewById(R.id.percent);
         correct = findViewById(R.id.correct);
-        percent = findViewById(R.id.percent);
 
+        // Calculate percentage for number correct.
         result = points * 100 / 10;
-        percent.setText(String.valueOf(result) + "%");
-
-        if (points == 10) {
-            results.setText("You did outstanding, " + person + ".");
-        } else if (points >= 8) {
-            results.setText("You did good, " + person + ".");
-        } else if (points >= 6) {
-            results.setText("You did ok, " + person + ".");
-        } else {
-            results.setText("Not so good, " + person + ".");
-        }
-
-        correct.setText(points + " out of 10 correct.");
 
         // Progress Bar
+        percent.setText(result + "%"); // Percentage text
+        correct.setText(points + " out of 10 correct."); // Number correct
         Resources res = getResources();
         Drawable drawable = res.getDrawable(R.drawable.circular);
         final ProgressBar mProgress = findViewById(R.id.circularProgressbar);
@@ -58,29 +49,49 @@ public class Results extends AppCompatActivity {
         mProgress.setSecondaryProgress(100); // Secondary Progress
         mProgress.setMax(100); // Maximum Progress
         mProgress.setProgressDrawable(drawable);
-        new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                while (result < result) {
-                    result += 1;
+        // Tells user how they did.
+        if (points == 10) {
+            results.setText("Outstanding, " + person + "!");
+        } else if (points >= 8) {
+            results.setText("Good job, " + person + "!");
+        } else if (points >= 6) {
+            results.setText("You did ok, " + person + ".");
+        } else {
+            results.setText("Not so good, " + person + ".");
+        }
+    }
 
-                    handler.post(new Runnable() {
+    // Disable back button.
+    @Override
+    public void onBackPressed() {
+        // Display message.
+        Toast toast = Toast.makeText(this, "No need to go back.", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.show();
+    }
 
-                        @Override
-                        public void run() {
-                            mProgress.setProgress(result);
-                            percent.setText(result + "%");
+    // Restarts quiz.
+    public void reset(View v) {
+        Intent intent = new Intent(this, Quiz.class);
+        intent.putExtra("NAME", person);
+        Toast toast = Toast.makeText(this, "Good luck, " + person + ".", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.show();
+        startActivity(intent);
+    }
 
-                        }
-                    });
-                    try {
-                        Thread.sleep(8); // Thread will take approx 1.5 seconds to finish.
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
+    // Share with Google+.
+    public void share(View v) {
+        Intent shareIntent = ShareCompat.IntentBuilder.from(Results.this)
+                .setType("text/plain")
+                .setText("On The World History Quiz I got, " + correct.getText().toString())
+                .getIntent()
+                .setPackage("com.google.android.apps.plus");
+        if (shareIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(shareIntent);
+        }
     }
 }
+
+

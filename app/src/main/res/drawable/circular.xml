@@ -8,7 +8,6 @@
             android:thicknessRatio="40.0"
             android:useLevel="true">
 
-
             <gradient
                 android:centerColor="#DDDDDD"
                 android:endColor="#DDDDDD"
@@ -29,13 +28,6 @@
                 android:shape="ring"
                 android:thicknessRatio="40.0"
                 android:useLevel="true">
-
-
-                <rotate
-                    android:fromDegrees="0"
-                    android:pivotX="50%"
-                    android:pivotY="50%"
-                    android:toDegrees="360" />
 
                 <gradient
                     android:centerColor="@color/colorAccent"

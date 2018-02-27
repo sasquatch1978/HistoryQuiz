@@ -5,87 +5,52 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_width="@dimen/cardWidth"
-        android:layout_height="@dimen/cardHeight"
-        android:layout_gravity="center"
-        card_view:cardCornerRadius="4dp">
+    <android.support.v7.widget.CardView
+        style="@style/QuestionCard"
+        card_view:cardCornerRadius="@dimen/cardRadius">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/layoutMargin"
-            android:orientation="vertical">
+        <LinearLayout style="@style/CardLayout">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Question 1 of 10:"
-                android:textColor="@color/questionNumColor"
-                android:textSize="@dimen/questionText" />
+                android:text="@string/questionTitle1"
+                style="@style/QuestionTitle" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/textTopMargin"
-                android:text="An early form of writing developed by the Sumerians was called:"
-                android:textColor="@color/questionColor"
-                android:textSize="@dimen/questionText" />
+                android:text="@string/question1"
+                style="@style/Question" />
 
             <RadioGroup
                 android:id="@+id/q1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/RadioGroup">
 
                 <RadioButton
                     android:id="@+id/q1a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/answerMargin"
-                    android:text="A)  Sanskrit"
-                    android:textColor="@color/answerColor"
-                    android:textSize="@dimen/questionText" />
+                    android:text="@string/answer1a"
+                    style="@style/AnswerTop" />
 
                 <RadioButton
                     android:id="@+id/q1b"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="B)  Cuneiform"
-                    android:textColor="@color/answerColor"
-                    android:textSize="@dimen/questionText" />
+                    android:text="@string/answer1b"
+                    style="@style/Answer" />
 
                 <RadioButton
                     android:id="@+id/q1c"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C)  Indus"
-                    android:textColor="@color/answerColor"
-                    android:textSize="@dimen/questionText" />
+                    android:text="@string/answer1c"
+                    style="@style/Answer" />
 
                 <RadioButton
                     android:id="@+id/q1d"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="D)  Elamite"
-                    android:textColor="@color/answerColor"
-                    android:textSize="@dimen/questionText" />
+                    android:text="@string/answer1d"
+                    style="@style/Answer" />
 
             </RadioGroup>
         </LinearLayout>
 
         <Button
             android:id="@+id/submitQ1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:onClick="setQ1"
-            android:layout_marginBottom="@dimen/buttonMargin"
-            android:layout_gravity="bottom|center"
-            android:background="@drawable/buttonshape"
-            android:textSize="@dimen/questionText"
-            android:textColor="@color/buttonColor"
-            android:text="Submit"/>
+            android:text="@string/submitButton"
+            style="@style/SubmitButton" />
 
     </android.support.v7.widget.CardView>
 </LinearLayout>

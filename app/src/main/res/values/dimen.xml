@@ -3,6 +3,7 @@
     <!-- Margins -->
     <dimen name="layoutMargin">16dp</dimen>
     <dimen name="topMargin">115dp</dimen>
+    <dimen name="titleBottom">100dp</dimen>
     <dimen name="textTopMargin">8dp</dimen>
     <dimen name="entryTopMargin">44dp</dimen>
     <dimen name="answerMargin">6dp</dimen>
@@ -13,11 +14,18 @@
     <dimen name="entryMargin">140dp</dimen>
     <dimen name="imageBottom">20dp</dimen>
     <dimen name="scoreTop">20dp</dimen>
+
+    <!-- Width, Height, & Radius -->
     <dimen name="cardWidth">300dp</dimen>
     <dimen name="cardHeight">320dp</dimen>
+    <dimen name="cardRadius">4dp</dimen>
+    <dimen name="scoreWidth">110dp</dimen>
+    <dimen name="scoreHeight">46dp</dimen>
+    <dimen name="pagerHeight">324dp</dimen>
+    <dimen name="imageHeight">200dp</dimen>
 
     <!-- Text Size -->
-    <dimen name="welcomeText">20sp</dimen>
+    <dimen name="titleText">45sp</dimen>
     <dimen name="questionText">16sp</dimen>
     <dimen name="answerText">16sp</dimen>
 </resources>
