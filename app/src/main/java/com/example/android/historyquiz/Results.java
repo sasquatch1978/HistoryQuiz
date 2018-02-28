@@ -40,8 +40,8 @@ public class Results extends AppCompatActivity {
         result = points * 100 / 10;
 
         // Progress Bar
-        percent.setText(result + "%"); // Percentage text
-        correct.setText(points + " out of 10 correct."); // Number correct
+        percent.setText(getString(R.string.percentCorrect, result)); // Percentage text
+        correct.setText(getString(R.string.numberCorrect, points)); // Number correct
         Resources res = getResources();
         Drawable drawable = res.getDrawable(R.drawable.circular);
         final ProgressBar mProgress = findViewById(R.id.circularProgressbar);
@@ -52,13 +52,13 @@ public class Results extends AppCompatActivity {
 
         // Tells user how they did.
         if (points == 10) {
-            results.setText("Outstanding, " + person + "!");
+            results.setText(getString(R.string.outstanding, person));
         } else if (points >= 8) {
-            results.setText("Good job, " + person + "!");
+            results.setText(getString(R.string.good, person));
         } else if (points >= 6) {
-            results.setText("You did ok, " + person + ".");
+            results.setText(getString(R.string.ok, person));
         } else {
-            results.setText("Not so good, " + person + ".");
+            results.setText(getString(R.string.notGood, person));
         }
     }
 
@@ -75,7 +75,7 @@ public class Results extends AppCompatActivity {
     public void reset(View v) {
         Intent intent = new Intent(this, Quiz.class);
         intent.putExtra("NAME", person);
-        Toast toast = Toast.makeText(this, "Good luck, " + person + ".", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, getString(R.string.luck, person), Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
         toast.show();
         startActivity(intent);
@@ -85,7 +85,7 @@ public class Results extends AppCompatActivity {
     public void share(View v) {
         Intent shareIntent = ShareCompat.IntentBuilder.from(Results.this)
                 .setType("text/plain")
-                .setText("On The World History Quiz I got, " + correct.getText().toString())
+                .setText(getString(R.string.shareMessage) + correct.getText().toString())
                 .getIntent()
                 .setPackage("com.google.android.apps.plus");
         if (shareIntent.resolveActivity(getPackageManager()) != null) {

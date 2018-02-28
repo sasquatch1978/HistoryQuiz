@@ -1,7 +1,10 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">History Quiz</string>
+
+    <!-- Xml Strings-->
     <string name="title">World History\nQuiz</string>
-    <string name="hint">Please Enter Your Name</string>
+    <string name="nameHint">Please Enter Your Name</string>
     <string name="beginButton">Begin</string>
     <string name="submitButton">Submit</string>
     <string name="score">Score:</string>
@@ -42,5 +45,48 @@
     <string name="answer6b">B) Eyeglasses</string>
     <string name="answer6c">C) Windmill</string>
     <string name="answer6d">D) Gunpowder</string>
+    <string name="questionTitle7">Question 7 of 10:</string>
+    <string name="question7">Vikings created a settlement called Vinland in 986. It was at present-day:</string>
+    <string name="answer7a">A) Newfoundland</string>
+    <string name="answer7b">B) Maine</string>
+    <string name="answer7c">C) Greenland</string>
+    <string name="answer7d">D) Iceland</string>
+    <string name="questionTitle8">Question 8 of 10:</string>
+    <string name="question8">Where did Napolean\'s final defeat take place?</string>
+    <string name="answerHint">Answer</string>
+    <string name="questionTitle9">Question 9 of 10:</string>
+    <string name="question9">In World War 1, which country was a member of the Central Powers?</string>
+    <string name="answer9a">A) Japan</string>
+    <string name="answer9b">B) Italy</string>
+    <string name="answer9c">C) Germany</string>
+    <string name="answer9d">D) England</string>
+    <string name="questionTitle10">Question 10 of 10:</string>
+    <string name="question10">What country did the Bay of Pigs invasion take place in?</string>
+    <string name="answer10a">A) France</string>
+    <string name="answer10b">B) Brazil</string>
+    <string name="answer10c">C) Canada</string>
+    <string name="answer10d">D) Cuba</string>
+    <string name="resultsTitle">Results:</string>
+    <string name="progessPercent">25%</string>
+    <string name="fillerText">This is filler text.</string>
+    <string name="shareButton">Share</string>
+    <string name="retryButton">Retry</string>
+
+    <!-- Java Strings-->
+    <!-- Good luck toast. It will be shown in the format of "Good luck, Bob." where Bob is the user's name. [CHAR LIMIT=NONE] -->
+    <string name="luck">Good luck, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
+    <!-- No name entered toast. [CHAR LIMIT=NONE] -->
+    <string name="enterName">Please Enter Your Name.</string>
+    <!-- Result message. It will be shown in the format of "Outstanding, Bob!" where Bob is the user's name. [CHAR LIMIT=NONE] -->
+    <string name="outstanding">Outstanding, <xliff:g example="Bob" id="person">%s</xliff:g>!</string>
+    <string name="good">Good job, <xliff:g example="Bob" id="person">%s</xliff:g>!</string>
+    <string name="ok">You did OK, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
+    <string name="notGood">Not so good, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
+    <!-- Percent message. It will be shown in the format of "100%" where 100 is percentage correct. [CHAR LIMIT=10] -->
+    <string name="percentCorrect"><xliff:g example="100" id="result">%d</xliff:g>%%</string>
+    <!-- Number correct message. It will be shown in the format of "10 out of 10 correct." where 10 is the number correct. [CHAR LIMIT=NONE] -->
+    <string name="numberCorrect"><xliff:g example="10" id="points">%d</xliff:g> out of 10 correct.</string>
+    <!-- Intent share message. [CHAR LIMIT=NONE] -->
+    <string name="shareMessage">On The World History Quiz I got,\u0020</string>
 </resources>
 

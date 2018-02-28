@@ -8,6 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ScrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/layoutColor</item>
+        <item name="android:fillViewport">true</item>
+    </style>
+
+    <style name="MainLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/layoutMargin</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
     <style name="Image">
         <item name="android:layout_width">@dimen/cardHeight</item>
         <item name="android:layout_height">@dimen/imageHeight</item>
@@ -74,9 +88,9 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">bottom|center</item>
-        <item name="android:layout_marginBottom">@dimen/buttonMargin</item>
+        <item name="android:layout_marginBottom">@dimen/layoutMargin</item>
         <item name="android:background">@drawable/buttonshape</item>
-        <item name="android:textColor">@color/buttonColor</item>
+        <item name="android:textColor">@color/buttonTextColor</item>
         <item name="android:textSize">@dimen/questionText</item>
     </style>
 

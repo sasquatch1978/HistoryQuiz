@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/layoutColor"
-    android:fillViewport="true"
+    style="@style/ScrollView"
     tools:context="com.example.android.historyquiz.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/layoutMargin"
-        android:orientation="vertical">
+    <LinearLayout style="@style/MainLayout">
 
         <ImageView
             android:layout_width="@dimen/cardHeight"
             android:layout_height="@dimen/imageHeight"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/answerBottom"
+            android:layout_marginBottom="@dimen/titleImageBottom"
             android:src="@drawable/world" />
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/nameWidth"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="@dimen/entryTopMargin"
-            android:layout_marginLeft="@dimen/nameMargin"
-            android:layout_marginRight="@dimen/nameMargin"
-            android:hint="@string/hint"
+            android:hint="@string/nameHint"
             android:inputType="textPersonName|textCapWords"
             android:textAlignment="center" />
 
@@ -35,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/titleBottom"
-
             android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@color/questionNumColor"
@@ -49,7 +40,7 @@
             android:background="@drawable/buttonshape"
             android:onClick="begin"
             android:text="@string/beginButton"
-            android:textColor="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"
             android:textSize="@dimen/questionText" />
 
     </LinearLayout>

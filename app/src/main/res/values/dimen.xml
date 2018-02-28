@@ -2,16 +2,16 @@
 <resources>
     <!-- Margins -->
     <dimen name="layoutMargin">16dp</dimen>
-    <dimen name="topMargin">115dp</dimen>
+    <dimen name="titleImageBottom">36dp</dimen>
     <dimen name="titleBottom">100dp</dimen>
     <dimen name="textTopMargin">8dp</dimen>
     <dimen name="entryTopMargin">44dp</dimen>
     <dimen name="answerMargin">6dp</dimen>
-    <dimen name="answerBottom">36dp</dimen>
-    <dimen name="nameMargin">60dp</dimen>
-    <dimen name="buttonMargin">16dp</dimen>
-    <dimen name="entryMargin">140dp</dimen>
+    <dimen name="textAnswerBottom">150dp</dimen>
     <dimen name="imageBottom">20dp</dimen>
+    <dimen name="percentTopMargin">80dp</dimen>
+    <dimen name="retryButtonMargin">91dp</dimen>
+    <dimen name="buttonPadding">0dp</dimen>
 
     <!-- Width, Height, & Radius -->
     <dimen name="cardWidth">300dp</dimen>
@@ -21,8 +21,15 @@
     <dimen name="scoreHeight">46dp</dimen>
     <dimen name="pagerHeight">324dp</dimen>
     <dimen name="imageHeight">200dp</dimen>
+    <dimen name="nameWidth">220dp</dimen>
+    <dimen name="textAnswerWidth">268dp</dimen>
+    <dimen name="resultCardHeight">390dp</dimen>
+    <dimen name="resultLayoutHeight">285dp</dimen>
+    <dimen name="buttonHeight">30dp</dimen>
+    <dimen name="buttonRadius">2dp</dimen>
 
     <!-- Text Size -->
     <dimen name="titleText">45sp</dimen>
     <dimen name="questionText">16sp</dimen>
+    <dimen name="percentText">36sp</dimen>
 </resources>
