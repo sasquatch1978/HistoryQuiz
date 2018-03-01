@@ -66,7 +66,7 @@ public class Results extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Display message.
-        Toast toast = Toast.makeText(this, "No need to go back.", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, R.string.noBack, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
         toast.show();
     }

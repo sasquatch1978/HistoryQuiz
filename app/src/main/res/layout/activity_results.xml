@@ -15,6 +15,7 @@
             android:layout_width="@dimen/cardWidth"
             android:layout_height="@dimen/resultCardHeight"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/bottomCardMargin"
             card_view:cardCornerRadius="@dimen/cardRadius">
 
             <LinearLayout style="@style/CardLayout">

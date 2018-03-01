@@ -20,6 +20,7 @@
             android:layout_width="@dimen/scoreWidth"
             android:layout_height="@dimen/scoreHeight"
             android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/bottomCardMargin"
             android:layout_marginTop="@dimen/imageBottom"
             card_view:cardCornerRadius="@dimen/cardRadius">
 

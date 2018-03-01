@@ -74,7 +74,7 @@ public class Quiz extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         // Display message.
-        Toast toast = Toast.makeText(this, "No need to go back.", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, R.string.noBack, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
         toast.show();
     }
@@ -87,7 +87,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q1b.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "B is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.oneCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -99,7 +99,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q1.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -108,7 +108,7 @@ public class Quiz extends AppCompatActivity{
         //Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, B.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.oneWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -123,7 +123,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question two.
@@ -134,7 +134,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q2c.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "C is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.twoCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -146,7 +146,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q2.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -155,7 +155,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, C.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.twoWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -170,7 +170,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question three.
@@ -181,7 +181,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q3a.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "A is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.threeCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -193,7 +193,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q3.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -202,7 +202,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, A.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.threeWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -217,7 +217,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question four.
@@ -251,7 +251,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (checkBoxAnswer.equals("10")) {
             // Display message.
-            Toast toast = Toast.makeText(this, "A & C are correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.fourCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             score += 1;
@@ -261,7 +261,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until two answers are entered.
         else if (checkBoxAnswer.equals("0") || checkBoxAnswer.equals("2") || checkBoxAnswer.equals("4") || checkBoxAnswer.equals("8") || checkBoxAnswer.equals("16")) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter two answers.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.twoAnswers, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -270,7 +270,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, A & C.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.fourWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -285,7 +285,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question five.
@@ -296,7 +296,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q5b.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "B is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.fiveCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -308,7 +308,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q5.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -317,7 +317,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, B.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.fiveWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -332,7 +332,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question six.
@@ -366,7 +366,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (checkBoxAnswer.equals("18")) {
             // Display message.
-            Toast toast = Toast.makeText(this, "A & D are correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.sixCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             score += 1;
@@ -376,7 +376,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until two answers are entered.
         else if (checkBoxAnswer.equals("0") || checkBoxAnswer.equals("2") || checkBoxAnswer.equals("4") || checkBoxAnswer.equals("8") || checkBoxAnswer.equals("16")) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter two answers.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.twoAnswers, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -385,7 +385,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, A & D.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.sixWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -400,7 +400,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question seven.
@@ -411,7 +411,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q7a.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "A is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.sevenCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -423,7 +423,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q7.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -432,7 +432,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, A.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.sevenWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -447,7 +447,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question eight.
@@ -457,9 +457,9 @@ public class Quiz extends AppCompatActivity{
         String answer = q8Answer.getText().toString();
 
         // Correct answer.
-        if (answer.equals("Waterloo")) {
+        if (answer.equals(getString(R.string.eightAnswer))) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Waterloo is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.eightCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -471,7 +471,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (answer.equals("")) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -480,7 +480,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, Waterloo.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.eightWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -495,7 +495,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question nine.
@@ -506,7 +506,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q9c.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "C is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.nineCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -518,7 +518,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q9.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -527,7 +527,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, C.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.nineWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -542,7 +542,7 @@ public class Quiz extends AppCompatActivity{
             public void run() {
                 pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
-        }, 2500);
+        }, 2000);
     }
 
     // Question ten.
@@ -553,7 +553,7 @@ public class Quiz extends AppCompatActivity{
         // Correct answer.
         if (q10d.isChecked()) {
             // Display message.
-            Toast toast = Toast.makeText(this, "D is correct.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.tenCorrect, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
 
@@ -565,7 +565,7 @@ public class Quiz extends AppCompatActivity{
         // Do nothing until an answer is entered.
         else if (q10.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, "Please enter an answer.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
             return;
@@ -574,7 +574,7 @@ public class Quiz extends AppCompatActivity{
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, "Wrong, D.", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, R.string.tenWrong, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
             toast.show();
         }
@@ -592,7 +592,6 @@ public class Quiz extends AppCompatActivity{
                 intent.putExtra("NAME", name);
                 startActivity(intent);
             }
-        }, 2500);
+        }, 2000);
     }
 }
-

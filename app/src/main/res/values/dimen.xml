@@ -11,6 +11,7 @@
     <dimen name="imageBottom">20dp</dimen>
     <dimen name="percentTopMargin">80dp</dimen>
     <dimen name="retryButtonMargin">91dp</dimen>
+    <dimen name="bottomCardMargin">32dp</dimen>
     <dimen name="buttonPadding">0dp</dimen>
 
     <!-- Width, Height, & Radius -->
