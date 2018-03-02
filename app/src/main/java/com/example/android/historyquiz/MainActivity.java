@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme); // Sets the theme back to the app theme after splash screen.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

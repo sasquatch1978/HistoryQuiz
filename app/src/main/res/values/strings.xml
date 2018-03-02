@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App title. [CHAR LIMIT=NONE] -->
-    <string name="app_name">History Quiz</string>
+    <string name="app_name">World History Quiz</string>
 
     <!-- Xml Strings-->
     <!-- Title. [CHAR LIMIT=NONE] -->
@@ -107,39 +107,33 @@
     <!-- Disabled back button toast. [CHAR LIMIT=NONE] -->
     <string name="noBack">No need to go back.</string>
     <!-- No answer selected toast. [CHAR LIMIT=NONE] -->
-    <string name="enterAnswer">Please enter an answer.</string>
+    <string name="selectAnswer">Please select an answer.</string>
     <!-- Select two answers toast for checkboxes. [CHAR LIMIT=NONE] -->
-    <string name="twoAnswers">Please enter two answers.</string>
-    <!-- Correct and wrong answer toasts. [CHAR LIMIT=NONE] -->
+    <string name="twoAnswers">Please select two answers.</string>
+    <!-- No answer entered toast for EditText. [CHAR LIMIT=NONE] -->
+    <string name="enterAnswer">Please enter an answer.</string>
+    <!-- Correct answer toast. [CHAR LIMIT=NONE] -->
+    <string name="correct">Correct!</string>
+    <!-- Wrong answer toast. [CHAR LIMIT=NONE] -->
     <!-- Question one. -->
-    <string name="oneCorrect">B is correct.</string>
     <string name="oneWrong">Wrong, B.</string>
     <!-- Question two. -->
-    <string name="twoCorrect">C is correct.</string>
     <string name="twoWrong">Wrong, C.</string>
     <!-- Question three. -->
-    <string name="threeCorrect">A is correct.</string>
     <string name="threeWrong">Wrong, A.</string>
     <!-- Question four. -->
-    <string name="fourCorrect"><![CDATA[A & C are correct.]]></string>
     <string name="fourWrong"><![CDATA[Wrong, A & C.]]></string>
     <!-- Question five. -->
-    <string name="fiveCorrect">B is correct.</string>
     <string name="fiveWrong">Wrong, B.</string>
     <!-- Question six. -->
-    <string name="sixCorrect"><![CDATA[A & D are correct.]]></string>
     <string name="sixWrong"><![CDATA[Wrong, A & D.]]></string>
     <!-- Question seven. -->
-    <string name="sevenCorrect">A is correct.</string>
     <string name="sevenWrong">Wrong, A.</string>
     <!-- Question eight. -->
-    <string name="eightCorrect">Waterloo is correct.</string>
     <string name="eightWrong">Wrong, Waterloo.</string>
     <!-- Question nine. -->
-    <string name="nineCorrect">C is correct.</string>
     <string name="nineWrong">Wrong, C.</string>
     <!-- Question ten. -->
-    <string name="tenCorrect">D is correct.</string>
     <string name="tenWrong">Wrong, D.</string>
     <!-- Question eight answer. [CHAR LIMIT=NONE] -->
     <string name="eightAnswer">Waterloo</string>

@@ -30,6 +30,7 @@ public class Quiz extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme); // Sets the theme back to the app theme after splash screen.
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.quiz);
 
@@ -79,6 +80,44 @@ public class Quiz extends AppCompatActivity{
         toast.show();
     }
 
+    // Advance the ViewPager one item with a 20 second delay.
+    private void advancePager() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pager.setCurrentItem(pager.getCurrentItem()+1,true);
+            }
+        }, 2000);
+    }
+
+    // Display a toast if no radio button is selected.
+    private void selectAnswer() {
+        // Display message.
+        Toast toast = Toast.makeText(this, R.string.selectAnswer, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.show();
+    }
+
+    // Display a toast if two checkboxes aren't selected.
+    private void twoAnswers() {
+        // Display message.
+        Toast toast = Toast.makeText(this, R.string.twoAnswers, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.show();
+    }
+
+    // Display a toast if the answer is correct and increase the score one point.
+    private void correct() {
+        // Display message.
+        Toast toast = Toast.makeText(this, R.string.correct, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.show();
+
+        //Increase the score
+        score += 1;
+        totalPoints.setText(String.valueOf(score));
+    }
+
     // Question one.
     public void setQ1(View view) {
         RadioGroup q1 = findViewById(R.id.q1);
@@ -86,22 +125,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q1b.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.oneCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q1.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
@@ -118,12 +149,7 @@ public class Quiz extends AppCompatActivity{
         submitQ1.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question two.
@@ -133,22 +159,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q2c.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.twoCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q2.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
@@ -165,12 +183,7 @@ public class Quiz extends AppCompatActivity{
         submitQ2.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question three.
@@ -180,22 +193,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q3a.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.threeCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q3.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
@@ -212,12 +217,7 @@ public class Quiz extends AppCompatActivity{
         submitQ3.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question four.
@@ -250,20 +250,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (checkBoxAnswer.equals("10")) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.fourCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until two answers are entered.
         else if (checkBoxAnswer.equals("0") || checkBoxAnswer.equals("2") || checkBoxAnswer.equals("4") || checkBoxAnswer.equals("8") || checkBoxAnswer.equals("16")) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.twoAnswers, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            twoAnswers();
             return;
         }
 
@@ -280,12 +274,7 @@ public class Quiz extends AppCompatActivity{
         submitQ4.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question five.
@@ -295,22 +284,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q5b.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.fiveCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q5.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
@@ -327,12 +308,7 @@ public class Quiz extends AppCompatActivity{
         submitQ5.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question six.
@@ -365,20 +341,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (checkBoxAnswer.equals("18")) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.sixCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until two answers are entered.
         else if (checkBoxAnswer.equals("0") || checkBoxAnswer.equals("2") || checkBoxAnswer.equals("4") || checkBoxAnswer.equals("8") || checkBoxAnswer.equals("16")) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.twoAnswers, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            twoAnswers();
             return;
         }
 
@@ -395,12 +365,7 @@ public class Quiz extends AppCompatActivity{
         submitQ6.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question seven.
@@ -410,22 +375,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q7a.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.sevenCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q7.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
@@ -442,12 +399,7 @@ public class Quiz extends AppCompatActivity{
         submitQ7.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question eight.
@@ -458,14 +410,8 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (answer.equals(getString(R.string.eightAnswer))) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.eightCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
@@ -490,12 +436,7 @@ public class Quiz extends AppCompatActivity{
         submitQ8.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question nine.
@@ -505,22 +446,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q9c.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.nineCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q9.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
@@ -537,12 +470,7 @@ public class Quiz extends AppCompatActivity{
         submitQ9.setEnabled(false);
 
         // Advance to next question.
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
+        advancePager();
     }
 
     // Question ten.
@@ -552,22 +480,14 @@ public class Quiz extends AppCompatActivity{
 
         // Correct answer.
         if (q10d.isChecked()) {
-            // Display message.
-            Toast toast = Toast.makeText(this, R.string.tenCorrect, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
-
-            //Increase the score
-            score += 1;
-            totalPoints.setText(String.valueOf(score));
+            // Display message and increase score.
+            correct();
         }
 
         // Do nothing until an answer is entered.
         else if (q10.getCheckedRadioButtonId() == -1) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.show();
+            selectAnswer();
             return;
         }
 
