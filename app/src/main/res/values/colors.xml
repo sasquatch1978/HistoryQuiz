@@ -5,6 +5,7 @@
     <color name="colorAccent">#51A7B3</color>
     <color name="buttonColor">#0496C7</color>
     <color name="buttonTextColor">#FFFFFF</color>
+    <color name="disabledButtonText">#95D4EB</color>
     <color name="questionColor">#151515</color>
     <color name="answerColor">#252525</color>
     <color name="layoutColor">#EDEDED</color>

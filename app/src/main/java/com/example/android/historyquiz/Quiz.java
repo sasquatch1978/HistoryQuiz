@@ -16,21 +16,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Quiz extends AppCompatActivity{
-
-    int score = 0;
-    String name;
-
-    ViewPager pager;
-    private Handler handler = new Handler();
-
-    TextView totalPoints;
+public class Quiz extends AppCompatActivity {
 
     static String QUIZ_POINTS = "quiz_points";
+    int score = 0;
+    String name;
+    ViewPager pager;
+    TextView totalPoints;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme); // Sets the theme back to the app theme after splash screen.
+        setTheme(R.style.AppTheme); // Sets the theme back to the app theme, each new activity uses splash theme.
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.quiz);
 
@@ -85,7 +82,7 @@ public class Quiz extends AppCompatActivity{
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
+                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
             }
         }, 2000);
     }
@@ -136,7 +133,7 @@ public class Quiz extends AppCompatActivity{
             return;
         }
 
-        //Wrong answer.
+        // Wrong answer.
         else {
             // Display message.
             Toast toast = Toast.makeText(this, R.string.oneWrong, Toast.LENGTH_SHORT);
@@ -147,6 +144,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ1 = findViewById(R.id.submitQ1);
         submitQ1.setEnabled(false);
+        submitQ1.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -181,6 +179,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ2 = findViewById(R.id.submitQ2);
         submitQ2.setEnabled(false);
+        submitQ2.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -215,6 +214,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ3 = findViewById(R.id.submitQ3);
         submitQ3.setEnabled(false);
+        submitQ3.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -272,6 +272,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ4 = findViewById(R.id.submitQ4);
         submitQ4.setEnabled(false);
+        submitQ4.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -306,6 +307,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ5 = findViewById(R.id.submitQ5);
         submitQ5.setEnabled(false);
+        submitQ5.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -363,6 +365,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ6 = findViewById(R.id.submitQ6);
         submitQ6.setEnabled(false);
+        submitQ6.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -397,6 +400,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ7 = findViewById(R.id.submitQ7);
         submitQ7.setEnabled(false);
+        submitQ7.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -434,6 +438,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ8 = findViewById(R.id.submitQ8);
         submitQ8.setEnabled(false);
+        submitQ8.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -468,6 +473,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ9 = findViewById(R.id.submitQ9);
         submitQ9.setEnabled(false);
+        submitQ9.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to next question.
         advancePager();
@@ -502,6 +508,7 @@ public class Quiz extends AppCompatActivity{
         // Disable the submit button.
         Button submitQ10 = findViewById(R.id.submitQ10);
         submitQ10.setEnabled(false);
+        submitQ10.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
         // Advance to Results.
         handler.postDelayed(new Runnable() {

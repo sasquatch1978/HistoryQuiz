@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Start the quiz.
-    public void begin (View v){
+    public void begin(View v) {
         String person = name.getText().toString();
 
         if (person.equals("")) {

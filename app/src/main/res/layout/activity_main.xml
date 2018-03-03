@@ -13,16 +13,6 @@
             android:layout_marginBottom="@dimen/titleImageBottom"
             android:src="@drawable/world" />
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="@dimen/nameWidth"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/entryTopMargin"
-            android:hint="@string/nameHint"
-            android:inputType="textPersonName|textCapWords"
-            android:textAlignment="center" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,6 +21,16 @@
             android:textAlignment="center"
             android:textColor="@color/questionNumColor"
             android:textSize="@dimen/titleText" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="@dimen/nameWidth"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/entryBottomMargin"
+            android:hint="@string/nameHint"
+            android:inputType="textPersonName|textCapWords"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/begin"

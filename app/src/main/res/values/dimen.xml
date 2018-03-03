@@ -2,12 +2,12 @@
 <resources>
     <!-- Margins -->
     <dimen name="layoutMargin">16dp</dimen>
-    <dimen name="titleImageBottom">36dp</dimen>
-    <dimen name="titleBottom">100dp</dimen>
+    <dimen name="titleImageBottom">24dp</dimen>
+    <dimen name="titleBottom">20dp</dimen>
     <dimen name="textTopMargin">8dp</dimen>
-    <dimen name="entryTopMargin">44dp</dimen>
+    <dimen name="entryBottomMargin">94dp</dimen>
     <dimen name="answerMargin">6dp</dimen>
-    <dimen name="textAnswerBottom">150dp</dimen>
+    <dimen name="textAnswerBottom">160dp</dimen>
     <dimen name="imageBottom">20dp</dimen>
     <dimen name="percentTopMargin">80dp</dimen>
     <dimen name="retryButtonMargin">91dp</dimen>
@@ -30,7 +30,7 @@
     <dimen name="buttonRadius">2dp</dimen>
 
     <!-- Text Size -->
-    <dimen name="titleText">45sp</dimen>
+    <dimen name="titleText">38sp</dimen>
     <dimen name="questionText">16sp</dimen>
     <dimen name="percentText">36sp</dimen>
 </resources>

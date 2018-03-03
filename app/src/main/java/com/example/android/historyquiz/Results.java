@@ -20,7 +20,7 @@ public class Results extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme); // Sets the theme back to the app theme after splash screen.
+        setTheme(R.style.AppTheme); // Sets the theme back to the app theme, each new activity uses splash theme.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
