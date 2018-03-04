@@ -13,6 +13,7 @@
     <dimen name="retryButtonMargin">91dp</dimen>
     <dimen name="bottomCardMargin">32dp</dimen>
     <dimen name="buttonPadding">0dp</dimen>
+    <dimen name="toastPadding">10dp</dimen>
 
     <!-- Width, Height, & Radius -->
     <dimen name="cardWidth">300dp</dimen>
@@ -28,6 +29,8 @@
     <dimen name="resultLayoutHeight">285dp</dimen>
     <dimen name="buttonHeight">30dp</dimen>
     <dimen name="buttonRadius">2dp</dimen>
+    <dimen name="toastRadius">5dp</dimen>
+    <dimen name="toastBorder">2dp</dimen>
 
     <!-- Text Size -->
     <dimen name="titleText">38sp</dimen>

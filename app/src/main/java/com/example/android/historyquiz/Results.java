@@ -1,13 +1,18 @@
 package com.example.android.historyquiz;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +22,11 @@ public class Results extends AppCompatActivity {
     String person;
 
     TextView correct;
+    TextView toastText;
+    View layout;
+
+    SharedPreferences sharedPreferences;
+    private static final String PREF_NAME = "prefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +37,11 @@ public class Results extends AppCompatActivity {
         int points;
         int result;
 
-        // Gets info from other activities.
-        person = getIntent().getStringExtra("NAME");
+        // Retrieves name from shared preferences.
+        sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        person = (sharedPreferences.getString("username", ""));
+
+        // Retrieves score from intent.
         String score = getIntent().getStringExtra("SCORE");
         points = Integer.parseInt(String.valueOf(score));
 
@@ -37,8 +50,13 @@ public class Results extends AppCompatActivity {
         TextView percent = findViewById(R.id.percent);
         correct = findViewById(R.id.correct);
 
+        // Custom Toast
+        LayoutInflater inflater = getLayoutInflater();
+        layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.toast_layout_root));
+        toastText = layout.findViewById(R.id.toastText);
+
         // Calculate percentage for number correct.
-        result = points * 100 / 10;
+        result = points * 100 / 14;
 
         // Progress Bar
         percent.setText(getString(R.string.percentCorrect, result)); // Percentage text
@@ -52,34 +70,35 @@ public class Results extends AppCompatActivity {
         mProgress.setProgressDrawable(drawable);
 
         // Tells user how they did.
-        if (points == 10) {
+        if (result == 100) {
             results.setText(getString(R.string.outstanding, person));
-        } else if (points >= 8) {
+        } else if (result >= 80) {
             results.setText(getString(R.string.good, person));
-        } else if (points >= 6) {
+        } else if (result >= 60) {
             results.setText(getString(R.string.ok, person));
         } else {
             results.setText(getString(R.string.notGood, person));
         }
     }
 
-    // Disable back button.
-    @Override
-    public void onBackPressed() {
-        // Display message.
-        Toast toast = Toast.makeText(this, R.string.noBack, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 585);
-        toast.show();
-    }
-
     // Restarts quiz.
     public void reset(View v) {
+        // Return to quiz activity.
         Intent intent = new Intent(this, Quiz.class);
-        intent.putExtra("NAME", person);
-        Toast toast = Toast.makeText(this, getString(R.string.luck, person), Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 585);
-        toast.show();
+        // Delay toast 1/10 of a second, until next activity starts.
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toastText.setText(getString(R.string.luckRetry, person));
+                Toast toast = new Toast(getApplication());
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 585);
+                toast.setView(layout);
+                toast.show();
+            }
+        }, 100);
         startActivity(intent);
+        finish();
     }
 
     // Share with Google+.

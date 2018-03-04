@@ -6,7 +6,9 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,9 +22,11 @@ public class Quiz extends AppCompatActivity {
 
     static String QUIZ_POINTS = "quiz_points";
     int score = 0;
-    String name;
     ViewPager pager;
     TextView totalPoints;
+    TextView toastText;
+    View layout;
+
     private Handler handler = new Handler();
 
     @Override
@@ -30,11 +34,6 @@ public class Quiz extends AppCompatActivity {
         setTheme(R.style.AppTheme); // Sets the theme back to the app theme, each new activity uses splash theme.
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.quiz);
-
-        // Gets info from other activities.
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
-        name = bundle.getString("NAME");
 
         // Hides the keyboard until it is needed.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -47,6 +46,11 @@ public class Quiz extends AppCompatActivity {
 
         // Score TextView.
         totalPoints = findViewById(R.id.points);
+
+        // Custom Toast
+        LayoutInflater inflater = getLayoutInflater();
+        layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.toast_layout_root));
+        toastText = layout.findViewById(R.id.toastText);
     }
 
     // Saves the score for rotation.
@@ -72,12 +76,15 @@ public class Quiz extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Display message.
-        Toast toast = Toast.makeText(this, R.string.noBack, Toast.LENGTH_SHORT);
+        toastText.setText(R.string.noBack);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
         toast.show();
     }
 
-    // Advance the ViewPager one item with a 20 second delay.
+    // Advance the ViewPager one item with a 2 second delay.
     private void advancePager() {
         handler.postDelayed(new Runnable() {
             @Override
@@ -90,28 +97,47 @@ public class Quiz extends AppCompatActivity {
     // Display a toast if no radio button is selected.
     private void selectAnswer() {
         // Display message.
-        Toast toast = Toast.makeText(this, R.string.selectAnswer, Toast.LENGTH_SHORT);
+        toastText.setText(R.string.selectAnswer);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
         toast.show();
     }
 
     // Display a toast if two checkboxes aren't selected.
     private void twoAnswers() {
         // Display message.
-        Toast toast = Toast.makeText(this, R.string.twoAnswers, Toast.LENGTH_SHORT);
+        toastText.setText(R.string.twoAnswers);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
         toast.show();
     }
 
-    // Display a toast if the answer is correct and increase the score one point.
+    // Display a toast if the answer is correct.
     private void correct() {
         // Display message.
-        Toast toast = Toast.makeText(this, R.string.correct, Toast.LENGTH_SHORT);
+        toastText.setText(R.string.correct);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
         toast.show();
+    }
 
+    // Increase score 1 point for correct answer.
+    private void point1() {
         //Increase the score
         score += 1;
+        totalPoints.setText(String.valueOf(score));
+    }
+
+    // Increase score 2 points for correct answer.
+    private void point2() {
+        //Increase the score
+        score += 2;
         totalPoints.setText(String.valueOf(score));
     }
 
@@ -124,6 +150,7 @@ public class Quiz extends AppCompatActivity {
         if (q1b.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -136,8 +163,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.oneWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.oneWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -159,6 +189,7 @@ public class Quiz extends AppCompatActivity {
         if (q2c.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -171,8 +202,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.twoWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.twoWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -194,6 +228,7 @@ public class Quiz extends AppCompatActivity {
         if (q3a.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -206,8 +241,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.threeWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.threeWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -252,6 +290,7 @@ public class Quiz extends AppCompatActivity {
         if (checkBoxAnswer.equals("10")) {
             // Display message and increase score.
             correct();
+            point2();
         }
 
         // Do nothing until two answers are entered.
@@ -264,8 +303,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.fourWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.fourWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -287,6 +329,7 @@ public class Quiz extends AppCompatActivity {
         if (q5b.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -299,8 +342,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.fiveWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.fiveWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -345,6 +391,7 @@ public class Quiz extends AppCompatActivity {
         if (checkBoxAnswer.equals("18")) {
             // Display message and increase score.
             correct();
+            point2();
         }
 
         // Do nothing until two answers are entered.
@@ -357,8 +404,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.sixWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.sixWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -380,6 +430,7 @@ public class Quiz extends AppCompatActivity {
         if (q7a.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -392,8 +443,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.sevenWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.sevenWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -408,21 +462,27 @@ public class Quiz extends AppCompatActivity {
 
     // Question eight.
     public void setQ8(View view) {
-        EditText q8Answer;
-        q8Answer = findViewById(R.id.q8answer);
+        EditText q8Answer = findViewById(R.id.q8answer);
         String answer = q8Answer.getText().toString();
 
         // Correct answer.
-        if (answer.equals(getString(R.string.eightAnswer))) {
-            // Display message and increase score.
+        if (answer.equals(getString(R.string.eightAnswer)) || answer.equals(getString(R.string.eightAltAnswer))) {
+            // Display message.
             correct();
+
+            //Increase the score
+            score += 3;
+            totalPoints.setText(String.valueOf(score));
         }
 
         // Do nothing until an answer is entered.
         else if (answer.equals("")) {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.enterAnswer, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.enterAnswer);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
             return;
         }
@@ -430,8 +490,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.eightWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.eightWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -453,6 +516,7 @@ public class Quiz extends AppCompatActivity {
         if (q9c.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -465,8 +529,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.nineWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.nineWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -488,6 +555,7 @@ public class Quiz extends AppCompatActivity {
         if (q10d.isChecked()) {
             // Display message and increase score.
             correct();
+            point1();
         }
 
         // Do nothing until an answer is entered.
@@ -500,8 +568,11 @@ public class Quiz extends AppCompatActivity {
         // Wrong answer.
         else {
             // Display message.
-            Toast toast = Toast.makeText(this, R.string.tenWrong, Toast.LENGTH_SHORT);
+            toastText.setText(R.string.tenWrong);
+            Toast toast = new Toast(this);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 585);
+            toast.setView(layout);
             toast.show();
         }
 
@@ -516,8 +587,8 @@ public class Quiz extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(Quiz.this, Results.class);
                 intent.putExtra("SCORE", String.valueOf(score));
-                intent.putExtra("NAME", name);
                 startActivity(intent);
+                finish();
             }
         }, 2000);
     }

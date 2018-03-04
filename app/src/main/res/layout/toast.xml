@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/toast_shape"
+    android:orientation="horizontal"
+    android:padding="@dimen/toastPadding">
+
+    <TextView
+        android:id="@+id/toastText"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/fillerText"
+        android:textColor="@color/toastText"
+        android:textSize="@dimen/questionText" />
+
+</LinearLayout>

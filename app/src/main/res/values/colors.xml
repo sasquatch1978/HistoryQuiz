@@ -11,4 +11,7 @@
     <color name="layoutColor">#EDEDED</color>
     <color name="questionNumColor">#397636</color>
     <color name="progressEmptyColor">#DDDDDD</color>
+    <color name="toastBorderColor">#DFECC0</color>
+    <color name="toastBackground">#F3F8E7</color>
+    <color name="toastText">#2C6F9A</color>
 </resources>

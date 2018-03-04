@@ -6,8 +6,10 @@
     <!-- Xml Strings-->
     <!-- Title. [CHAR LIMIT=NONE] -->
     <string name="title">World History\nQuiz</string>
-    <!-- No name entered toast. [CHAR LIMIT=NONE] -->
+    <!-- Name EditText. [CHAR LIMIT=NONE] -->
     <string name="nameHint">Please Enter Your Name</string>
+    <!-- Remember username CheckBox. [CHAR LIMIT=NONE] -->
+    <string name="rememberUser">Remember username?</string>
     <!-- Score. [CHAR LIMIT=NONE] -->
     <string name="score">Score:</string>
     <string name="scoreValue">0</string>
@@ -90,7 +92,9 @@
 
     <!-- Java Strings-->
     <!-- Good luck toast. It will be shown in the format of "Good luck, Bob." where Bob is the user's name. [CHAR LIMIT=NONE] -->
-    <string name="luck">Good luck, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
+    <string name="scoreInfo">Scoring:%nQuestions with one answer = 1 point%nQuestions with two answers = 2 points%nQuestions with text entry = 3 points%n%nGood luck, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
+    <!-- Good luck toast when retrying quiz. It will be shown in the format of "Good luck, Bob." where Bob is the user's name. [CHAR LIMIT=NONE] -->
+    <string name="luckRetry">Good luck, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
     <!-- No name entered toast. [CHAR LIMIT=NONE] -->
     <string name="enterName">Please Enter Your Name.</string>
     <!-- Result message. It will be shown in the format of "Outstanding, Bob!" where Bob is the user's name. [CHAR LIMIT=NONE] -->
@@ -100,10 +104,10 @@
     <string name="notGood">Not so good, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
     <!-- Percent message. It will be shown in the format of "100%" where 100 is percentage correct. [CHAR LIMIT=10] -->
     <string name="percentCorrect"><xliff:g example="100" id="result">%d</xliff:g>%%</string>
-    <!-- Number correct message. It will be shown in the format of "10 out of 10 correct." where 10 is the number correct. [CHAR LIMIT=NONE] -->
-    <string name="numberCorrect"><xliff:g example="10" id="points">%d</xliff:g> out of 10 correct.</string>
+    <!-- Number correct message. It will be shown in the format of "14 out of 14 points." where 14 is the number correct. [CHAR LIMIT=NONE] -->
+    <string name="numberCorrect"><xliff:g example="14" id="points">%d</xliff:g> out of 14 points.</string>
     <!-- Intent share message. [CHAR LIMIT=NONE] -->
-    <string name="shareMessage">On The World History Quiz, I answered\u0020</string>
+    <string name="shareMessage">On The World History Quiz, I scored\u0020</string>
     <!-- Disabled back button toast. [CHAR LIMIT=NONE] -->
     <string name="noBack">No need to go back.</string>
     <!-- No answer selected toast. [CHAR LIMIT=NONE] -->
@@ -137,5 +141,6 @@
     <string name="tenWrong">Wrong, D.</string>
     <!-- Question eight answer. [CHAR LIMIT=NONE] -->
     <string name="eightAnswer">Waterloo</string>
+    <string name="eightAltAnswer">waterloo</string>
 </resources>
 

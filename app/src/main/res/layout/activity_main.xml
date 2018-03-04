@@ -27,10 +27,24 @@
             android:layout_width="@dimen/nameWidth"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/entryBottomMargin"
             android:hint="@string/nameHint"
             android:inputType="textPersonName|textCapWords"
             android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/entryBottomMargin"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/userCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rememberUser"
+                android:textColor="@color/answerColor" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/begin"
