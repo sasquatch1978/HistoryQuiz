@@ -283,32 +283,33 @@ public class Quiz extends AppCompatActivity {
             checkBoxSum += 16;
         }
 
-        // Calculate which boxes are checked.
-        String checkBoxAnswer = "" + checkBoxSum;
-
-        // Correct answer.
-        if (checkBoxAnswer.equals("10")) {
-            // Display message and increase score.
-            correct();
-            point2();
-        }
-
-        // Do nothing until two answers are entered.
-        else if (checkBoxAnswer.equals("0") || checkBoxAnswer.equals("2") || checkBoxAnswer.equals("4") || checkBoxAnswer.equals("8") || checkBoxAnswer.equals("16")) {
-            // Display message.
-            twoAnswers();
-            return;
-        }
-
-        // Wrong answer.
-        else {
-            // Display message.
-            toastText.setText(R.string.fourWrong);
-            Toast toast = new Toast(this);
-            toast.setDuration(Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.setView(layout);
-            toast.show();
+        // Check the answer.
+        switch (checkBoxSum) {
+            // Correct answer.
+            case 10:
+                // Display message and increase score.
+                correct();
+                point2();
+                break;
+            // Do nothing until two answers are entered.
+            case 0:
+            case 2:
+            case 4:
+            case 8:
+            case 16:
+                // Display message.
+                twoAnswers();
+                return;
+            // Wrong answer.
+            default:
+                // Display message.
+                toastText.setText(R.string.fourWrong);
+                Toast toast = new Toast(this);
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 585);
+                toast.setView(layout);
+                toast.show();
+                break;
         }
 
         // Disable the submit button.
@@ -384,32 +385,33 @@ public class Quiz extends AppCompatActivity {
             checkBoxSum += 16;
         }
 
-        // Calculate which boxes are checked.
-        String checkBoxAnswer = "" + checkBoxSum;
-
-        // Correct answer.
-        if (checkBoxAnswer.equals("18")) {
-            // Display message and increase score.
-            correct();
-            point2();
-        }
-
-        // Do nothing until two answers are entered.
-        else if (checkBoxAnswer.equals("0") || checkBoxAnswer.equals("2") || checkBoxAnswer.equals("4") || checkBoxAnswer.equals("8") || checkBoxAnswer.equals("16")) {
-            // Display message.
-            twoAnswers();
-            return;
-        }
-
-        // Wrong answer.
-        else {
-            // Display message.
-            toastText.setText(R.string.sixWrong);
-            Toast toast = new Toast(this);
-            toast.setDuration(Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 585);
-            toast.setView(layout);
-            toast.show();
+        // Check the answer.
+        switch (checkBoxSum) {
+            // Correct answer.
+            case 18:
+                // Display message and increase score.
+                correct();
+                point2();
+                break;
+            // Do nothing until two answers are entered.
+            case 0:
+            case 2:
+            case 4:
+            case 8:
+            case 16:
+                // Display message.
+                twoAnswers();
+                return;
+            // Wrong answer.
+            default:
+                // Display message.
+                toastText.setText(R.string.sixWrong);
+                Toast toast = new Toast(this);
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 585);
+                toast.setView(layout);
+                toast.show();
+                break;
         }
 
         // Disable the submit button.
