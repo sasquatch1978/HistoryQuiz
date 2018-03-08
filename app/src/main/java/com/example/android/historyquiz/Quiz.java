@@ -3,6 +3,7 @@ package com.example.android.historyquiz;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -18,15 +19,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+import java.util.Vector;
+
 public class Quiz extends AppCompatActivity {
 
     static String QUIZ_POINTS = "quiz_points";
     int score = 0;
-    ViewPager pager;
+
     TextView totalPoints;
     TextView toastText;
     View layout;
 
+    ViewPager pager;
     private Handler handler = new Handler();
 
     @Override
@@ -39,10 +44,8 @@ public class Quiz extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         // View pager.
-        CustomPagerAdapter adapter = new CustomPagerAdapter(this);
         pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(10);
-        pager.setAdapter(adapter);
+        this.pageQuestions();
 
         // Score TextView.
         totalPoints = findViewById(R.id.points);
@@ -65,11 +68,24 @@ public class Quiz extends AppCompatActivity {
     // Retrieves the score after rotation.
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Always call the superclass so it can restore the view hierarchy. //
+        // Always call the superclass so it can restore the view hierarchy.
         super.onRestoreInstanceState(savedInstanceState);
-        // Restore state members from saved instance. //
+        // Restore state members from saved instance.
         score = savedInstanceState.getInt(QUIZ_POINTS);
         totalPoints.setText(String.valueOf(score));
+    }
+
+    // Call the fragments.
+    public void pageQuestions() {
+        List<Fragment> fragments = new Vector<>();
+        fragments.add(Fragment.instantiate(this, QuestionOne.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionTwo.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionThree.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionTen.class.getName()));
+        android.support.v4.view.PagerAdapter pager1 = new CustomPagerAdapter(super.getSupportFragmentManager(), fragments);
+        pager.setAdapter(pager1);
+        // Set off screen page limit.
+        pager.setOffscreenPageLimit(10);
     }
 
     // Disable back button.
@@ -89,7 +105,7 @@ public class Quiz extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
+                pager.setCurrentItem(pager.getCurrentItem()+1,true);
             }
         }, 2000);
     }
