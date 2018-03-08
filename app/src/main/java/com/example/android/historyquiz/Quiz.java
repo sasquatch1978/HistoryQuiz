@@ -81,6 +81,12 @@ public class Quiz extends AppCompatActivity {
         fragments.add(Fragment.instantiate(this, QuestionOne.class.getName()));
         fragments.add(Fragment.instantiate(this, QuestionTwo.class.getName()));
         fragments.add(Fragment.instantiate(this, QuestionThree.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionFour.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionFive.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionSix.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionSeven.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionEight.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionNine.class.getName()));
         fragments.add(Fragment.instantiate(this, QuestionTen.class.getName()));
         android.support.v4.view.PagerAdapter pager1 = new CustomPagerAdapter(super.getSupportFragmentManager(), fragments);
         pager.setAdapter(pager1);
