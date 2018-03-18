@@ -98,6 +98,7 @@ public class Results extends AppCompatActivity {
             }
         }, 100);
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
 

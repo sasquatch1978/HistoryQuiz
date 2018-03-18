@@ -147,5 +147,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         }, 100);
 
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

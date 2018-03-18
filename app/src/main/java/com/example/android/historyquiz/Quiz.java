@@ -612,6 +612,7 @@ public class Quiz extends AppCompatActivity {
                 Intent intent = new Intent(Quiz.this, Results.class);
                 intent.putExtra("SCORE", String.valueOf(score));
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
             }
         }, 2000);
