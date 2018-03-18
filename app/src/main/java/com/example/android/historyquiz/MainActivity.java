@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         }, 100);
 
         startActivity(intent);
+        // Crossfade the activity transition.
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

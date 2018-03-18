@@ -98,6 +98,7 @@ public class Results extends AppCompatActivity {
             }
         }, 100);
         startActivity(intent);
+        // Crossfade the activity transition.
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
