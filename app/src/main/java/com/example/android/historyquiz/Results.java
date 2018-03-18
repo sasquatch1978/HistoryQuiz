@@ -81,6 +81,13 @@ public class Results extends AppCompatActivity {
         }
     }
 
+    // Crossfade the activity transition when the back button is pressed.
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
     // Restarts quiz.
     public void reset(View v) {
         // Return to quiz activity.
