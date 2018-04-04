@@ -75,6 +75,25 @@ public class Quiz extends AppCompatActivity {
         totalPoints.setText(String.valueOf(score));
     }
 
+    // Call the fragments.
+    public void pageQuestions() {
+        List<Fragment> fragments = new Vector<>();
+        fragments.add(Fragment.instantiate(this, QuestionOne.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionTwo.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionThree.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionFour.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionFive.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionSix.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionSeven.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionEight.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionNine.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionTen.class.getName()));
+        android.support.v4.view.PagerAdapter pager1 = new CustomPagerAdapter(super.getSupportFragmentManager(), fragments);
+        pager.setAdapter(pager1);
+        // Set off screen page limit.
+        pager.setOffscreenPageLimit(10);
+    }
+    
     // Disable back button.
     @Override
     public void onBackPressed() {
@@ -509,25 +528,6 @@ public class Quiz extends AppCompatActivity {
                 finish();
             }
         }, 2000);
-    }
-
-    // Call the fragments.
-    public void pageQuestions() {
-        List<Fragment> fragments = new Vector<>();
-        fragments.add(Fragment.instantiate(this, QuestionOne.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionTwo.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionThree.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionFour.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionFive.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionSix.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionSeven.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionEight.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionNine.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionTen.class.getName()));
-        android.support.v4.view.PagerAdapter pager1 = new CustomPagerAdapter(super.getSupportFragmentManager(), fragments);
-        pager.setAdapter(pager1);
-        // Set off screen page limit.
-        pager.setOffscreenPageLimit(10);
     }
 
     // Advance the ViewPager one item with a 2 second delay.
