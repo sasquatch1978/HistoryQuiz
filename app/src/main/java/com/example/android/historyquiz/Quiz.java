@@ -75,25 +75,6 @@ public class Quiz extends AppCompatActivity {
         totalPoints.setText(String.valueOf(score));
     }
 
-    // Call the fragments.
-    public void pageQuestions() {
-        List<Fragment> fragments = new Vector<>();
-        fragments.add(Fragment.instantiate(this, QuestionOne.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionTwo.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionThree.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionFour.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionFive.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionSix.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionSeven.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionEight.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionNine.class.getName()));
-        fragments.add(Fragment.instantiate(this, QuestionTen.class.getName()));
-        android.support.v4.view.PagerAdapter pager1 = new CustomPagerAdapter(super.getSupportFragmentManager(), fragments);
-        pager.setAdapter(pager1);
-        // Set off screen page limit.
-        pager.setOffscreenPageLimit(10);
-    }
-
     // Disable back button.
     @Override
     public void onBackPressed() {
@@ -106,63 +87,6 @@ public class Quiz extends AppCompatActivity {
         toast.show();
     }
 
-    // Advance the ViewPager one item with a 2 second delay.
-    private void advancePager() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                pager.setCurrentItem(pager.getCurrentItem()+1,true);
-            }
-        }, 2000);
-    }
-
-    // Display a toast if no radio button is selected.
-    private void selectAnswer() {
-        // Display message.
-        toastText.setText(R.string.selectAnswer);
-        Toast toast = new Toast(this);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 585);
-        toast.setView(layout);
-        toast.show();
-    }
-
-    // Display a toast if two checkboxes aren't selected.
-    private void twoAnswers() {
-        // Display message.
-        toastText.setText(R.string.twoAnswers);
-        Toast toast = new Toast(this);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 585);
-        toast.setView(layout);
-        toast.show();
-    }
-
-    // Display a toast if the answer is correct.
-    private void correct() {
-        // Display message.
-        toastText.setText(R.string.correct);
-        Toast toast = new Toast(this);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 585);
-        toast.setView(layout);
-        toast.show();
-    }
-
-    // Increase score 1 point for correct answer.
-    private void point1() {
-        //Increase the score
-        score += 1;
-        totalPoints.setText(String.valueOf(score));
-    }
-
-    // Increase score 2 points for correct answer.
-    private void point2() {
-        //Increase the score
-        score += 2;
-        totalPoints.setText(String.valueOf(score));
-    }
-
     // Question one.
     public void setQ1(View view) {
         RadioGroup q1 = findViewById(R.id.q1);
@@ -170,21 +94,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q1b.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q1.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.oneWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -209,21 +130,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q2c.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q2.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.twoWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -248,21 +166,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q3a.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q3.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.threeWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -309,9 +224,8 @@ public class Quiz extends AppCompatActivity {
         switch (checkBoxSum) {
             // Correct answer.
             case 10:
-                // Display message and increase score.
-                correct();
-                point2();
+                correctToast();
+                scoreTwoPoints();
                 break;
             // Do nothing until two answers are entered.
             case 0:
@@ -319,12 +233,10 @@ public class Quiz extends AppCompatActivity {
             case 4:
             case 8:
             case 16:
-                // Display message.
-                twoAnswers();
+                selectTwoAnswersToast();
                 return;
             // Wrong answer.
             default:
-                // Display message.
                 toastText.setText(R.string.fourWrong);
                 Toast toast = new Toast(this);
                 toast.setDuration(Toast.LENGTH_SHORT);
@@ -350,21 +262,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q5b.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q5.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.fiveWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -411,9 +320,8 @@ public class Quiz extends AppCompatActivity {
         switch (checkBoxSum) {
             // Correct answer.
             case 18:
-                // Display message and increase score.
-                correct();
-                point2();
+                correctToast();
+                scoreTwoPoints();
                 break;
             // Do nothing until two answers are entered.
             case 0:
@@ -421,12 +329,10 @@ public class Quiz extends AppCompatActivity {
             case 4:
             case 8:
             case 16:
-                // Display message.
-                twoAnswers();
+                selectTwoAnswersToast();
                 return;
             // Wrong answer.
             default:
-                // Display message.
                 toastText.setText(R.string.sixWrong);
                 Toast toast = new Toast(this);
                 toast.setDuration(Toast.LENGTH_SHORT);
@@ -452,21 +358,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q7a.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q7.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.sevenWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -490,18 +393,14 @@ public class Quiz extends AppCompatActivity {
         String answer = q8Answer.getText().toString();
 
         // Correct answer.
-        if (answer.equals(getString(R.string.eightAnswer)) || answer.equals(getString(R.string.eightAltAnswer))) {
-            // Display message.
-            correct();
-
-            //Increase the score
+        if (answer.equalsIgnoreCase(getString(R.string.eightAnswer))) {
+            correctToast();
             score += 3;
             totalPoints.setText(String.valueOf(score));
         }
 
         // Do nothing until an answer is entered.
         else if (answer.equals("")) {
-            // Display message.
             toastText.setText(R.string.enterAnswer);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -513,7 +412,6 @@ public class Quiz extends AppCompatActivity {
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.eightWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -538,21 +436,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q9c.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q9.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.nineWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -577,21 +472,18 @@ public class Quiz extends AppCompatActivity {
 
         // Correct answer.
         if (q10d.isChecked()) {
-            // Display message and increase score.
-            correct();
-            point1();
+            correctToast();
+            scoreOnePoint();
         }
 
         // Do nothing until an answer is entered.
         else if (q10.getCheckedRadioButtonId() == -1) {
-            // Display message.
-            selectAnswer();
+            selectAnswerToast();
             return;
         }
 
         // Wrong answer.
         else {
-            // Display message.
             toastText.setText(R.string.tenWrong);
             Toast toast = new Toast(this);
             toast.setDuration(Toast.LENGTH_SHORT);
@@ -617,5 +509,76 @@ public class Quiz extends AppCompatActivity {
                 finish();
             }
         }, 2000);
+    }
+
+    // Call the fragments.
+    public void pageQuestions() {
+        List<Fragment> fragments = new Vector<>();
+        fragments.add(Fragment.instantiate(this, QuestionOne.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionTwo.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionThree.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionFour.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionFive.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionSix.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionSeven.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionEight.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionNine.class.getName()));
+        fragments.add(Fragment.instantiate(this, QuestionTen.class.getName()));
+        android.support.v4.view.PagerAdapter pager1 = new CustomPagerAdapter(super.getSupportFragmentManager(), fragments);
+        pager.setAdapter(pager1);
+        // Set off screen page limit.
+        pager.setOffscreenPageLimit(10);
+    }
+
+    // Advance the ViewPager one item with a 2 second delay.
+    private void advancePager() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pager.setCurrentItem(pager.getCurrentItem() + 1, true);
+            }
+        }, 2000);
+    }
+
+    // Display a toast if no radio button is selected.
+    private void selectAnswerToast() {
+        toastText.setText(R.string.selectAnswer);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
+        toast.show();
+    }
+
+    // Display a toast if two checkboxes aren't selected.
+    private void selectTwoAnswersToast() {
+        toastText.setText(R.string.twoAnswers);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
+        toast.show();
+    }
+
+    // Display a toast if the answer is correct.
+    private void correctToast() {
+        toastText.setText(R.string.correct);
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 585);
+        toast.setView(layout);
+        toast.show();
+    }
+
+    // Increase score 1 point for correct answer.
+    private void scoreOnePoint() {
+        score += 1;
+        totalPoints.setText(String.valueOf(score));
+    }
+
+    // Increase score 2 points for correct answer.
+    private void scoreTwoPoints() {
+        score += 2;
+        totalPoints.setText(String.valueOf(score));
     }
 }
