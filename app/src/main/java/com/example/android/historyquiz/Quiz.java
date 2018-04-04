@@ -93,7 +93,7 @@ public class Quiz extends AppCompatActivity {
         // Set off screen page limit.
         pager.setOffscreenPageLimit(10);
     }
-    
+
     // Disable back button.
     @Override
     public void onBackPressed() {
