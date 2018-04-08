@@ -409,7 +409,7 @@ public class Quiz extends AppCompatActivity {
     // Question eight.
     public void setQ8(View view) {
         EditText q8Answer = findViewById(R.id.q8answer);
-        String answer = q8Answer.getText().toString();
+        String answer = q8Answer.getText().toString().trim();
 
         // Correct answer.
         if (answer.equalsIgnoreCase(getString(R.string.eightAnswer))) {
@@ -516,7 +516,20 @@ public class Quiz extends AppCompatActivity {
         submitQ10.setEnabled(false);
         submitQ10.setTextColor(getResources().getColor(R.color.disabledButtonText));
 
-        // Advance to Results.
+        // Show a result toast with a two and one tenth second delay.
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toastText.setText(getString(R.string.resultToast, score));
+                Toast toast = new Toast(getApplication());
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 585);
+                toast.setView(layout);
+                toast.show();
+            }
+        }, 2100);
+
+        // Advance to Results with a five and a half second delay.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -527,7 +540,7 @@ public class Quiz extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
             }
-        }, 2000);
+        }, 5500);
     }
 
     // Advance the ViewPager one item with a 2 second delay.

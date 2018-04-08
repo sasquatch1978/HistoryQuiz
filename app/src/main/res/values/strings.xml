@@ -97,6 +97,8 @@
     <string name="luckRetry">Good luck, <xliff:g example="Bob" id="person">%s</xliff:g>.</string>
     <!-- No name entered toast. [CHAR LIMIT=NONE] -->
     <string name="enterName">Please Enter Your Name.</string>
+    <!-- Result toast message. It will be shown in the format of "You scored 14 out of 14 points." where 14 is the number correct. [CHAR LIMIT=NONE] -->
+    <string name="resultToast">You scored <xliff:g example="14" id="score">%d</xliff:g> out of 14 points.</string>
     <!-- Result message. It will be shown in the format of "Outstanding, Bob!" where Bob is the user's name. [CHAR LIMIT=NONE] -->
     <string name="outstanding">Outstanding, <xliff:g example="Bob" id="person">%s</xliff:g>!</string>
     <string name="good">Good job, <xliff:g example="Bob" id="person">%s</xliff:g>!</string>
